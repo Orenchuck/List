@@ -1,0 +1,68 @@
+html {
+    background: url(/bg2.10c121cd.jpg);
+    font-size: 1.5rem;
+}
+
+#title {
+    color: #000080;
+    font-weight: 600;
+    margin-top: 15%;
+    margin-left: 25%;
+    background: white;
+    padding: 2%;
+    width: 20%;
+    text-align: center;
+}
+
+#input {
+    width: 60%;
+    font-size: 1rem;
+    margin-top: 3%;
+    margin-left: 10%;
+    padding: 2%;
+    border: 2px solid #000080;
+    border-radius: 10px;
+}
+
+#ok {
+    font-size: 1rem;
+    padding: 2%;
+    margin-left: 1%;
+    border: 2px solid #000080;
+    border-radius: 10px;
+    background: #6495ED;
+    color: white;
+}
+
+ul {
+    margin-left: 10%;
+    width: 65%;
+}
+
+li {
+    background: white;
+    list-style: none;
+    color: #000080;
+    margin-top: 1%;
+    border: 1px dotted #000080;
+    padding-left: 2%;
+}
+
+li button {
+    border-radius: 5px;
+    background: #6495ED;
+    color: white;
+    padding: 0.5%;
+}
+
+.buyed li {
+    background: #87CEFA;
+    text-decoration: line-through;
+}
+
+.buyed .get {
+    display: none;
+}
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
