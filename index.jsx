@@ -9,12 +9,15 @@ class List extends React.Component {
             id: 0,
             all_purchases: [],
             buyed: [],
+            check: false,
         }
         this.add_list = this.add_list.bind(this);
         this.add_purchase = this.add_purchase.bind(this);
         this.remove = this.remove.bind(this);
         this.its_buyed = this.its_buyed.bind(this);
         this.add_enter = this.add_enter.bind(this);
+        this.finished = this.finished.bind(this);
+        this.handlecheck = this.handlecheck.bind(this);
     }
 
     add_list() {
@@ -56,12 +59,6 @@ class List extends React.Component {
     }
 
     its_buyed (index) {
-        // const i_buyed = this.state.buyed.map((item, i) => {
-        //    if(i === index) {
-        //     this.state.buyed[item] = true;
-        //     }
-        // });
-        // this.setState({buyed: i_buyed});
         console.log(index);
         if (this.state.buyed[index] !== true) {
                     const i_buyed = this.state.buyed;
@@ -71,10 +68,34 @@ class List extends React.Component {
         }
     }
 
+    finished () {
+        return (
+            <div>
+                <input type="checkbox" checkbox={this.state.check} onClick={this.handlecheck}></input>
+                Я все купил
+            </div>
+        )
+    }
+
+    handlecheck () {
+        this.setState({check: !this.state.check});
+    }
+
     render() {
         const list = this.state.all_purchases.map((item, index) => (
             <label key={index}
                 className={this.state.buyed[index] ? "buyed" : null}>
+                <li>{item}<br/>
+                <button className="get" onClick={() => this.its_buyed(index)}>Купил</button>
+                <button className="del" onClick={() => this.remove(index)}>Удалить</button>
+                </li>
+                
+            </label>
+        ));
+
+        const finish_list = this.state.all_purchases.map((item, index) => (
+            <label key={index}
+                className="buyed">
                 <li>{item}<br/>
                 <button className="get" onClick={() => this.its_buyed(index)}>Купил</button>
                 <button className="del" onClick={() => this.remove(index)}>Удалить</button>
@@ -92,7 +113,8 @@ class List extends React.Component {
                 <button onClick={this.add_list} id="ok">Ok</button>
                 <div id='list'>
                     <ul>
-                        {list}
+                        {this.state.all_purchases ? this.finished() : null}
+                        {this.state.check ? finish_list : list}
                     </ul>
                 </div>
             </div>
